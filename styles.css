@@ -1,0 +1,91 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+}
+
+.tudo {
+    height: 100%;
+    right: 100%;
+}
+
+.area-visivel {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo {
+
+    width: 540px;
+    height: 63px;
+    background-color: yellow;
+    margin-top: 40px;
+}
+
+.titulo p {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    text-align: center;
+
+}
+
+.caixa-de-cartas {
+    height: auto;
+    width: 80%;
+    margin-top: 47px;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.carta {
+    box-sizing: border-box;
+    width: calc((90% -117px) / 6);
+    height: 146px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
+}
+
+.carta {
+    transform: rotateY(180deg);
+}
+
+.carta:hover .carta {
+    transform: rotateY(0deg);
+}
+
+.carta:hover .carta {
+    transform: rotateY(-180deg);
+}
+
