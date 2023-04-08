@@ -47,7 +47,7 @@ body {
     gap: 35px;
 }
 
-img{
+img {
     width: 100px;
     height: 100px;
 }
@@ -66,7 +66,7 @@ img{
     background-color: #A7E9AF;
     border: 1px solid #99CEA8;
     border-radius: 5px;
-   
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,4 +88,17 @@ img{
 
 .selecionado>.front-face {
     transform: rotateY(-180deg);
+}
+
+@media (max-width: 335px) {
+    .titulo p {
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 42px;
+        text-align: center;
+        letter-spacing: -0.004em;
+        color: #75B79E;
+    }
+
 }
