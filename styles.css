@@ -23,6 +23,7 @@ body {
     text-align: center;
     background-color: #eef9bf;
     margin-top: 40px;
+   
 }
 
 .titulo p {
@@ -90,6 +91,23 @@ img {
     transform: rotateY(-180deg);
 }
 
+#timer {
+width: 46px;
+height: 47px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 42px;
+letter-spacing: -0.004em;
+color: #86BD8D;
+position: fixed;
+top: 0px;
+right: 0px;
+background-color: #eef9bf;
+text-align: center;
+}
+
 @media (max-width: 335px) {
     .titulo p {
         font-family: 'Roboto';
@@ -99,6 +117,7 @@ img {
         text-align: center;
         letter-spacing: -0.004em;
         color: #75B79E;
+       
     }
 
 }

@@ -4,12 +4,15 @@ let contarVerida =0;
 let contarJogadas =0;
 let carta1 , carta2;
 let contarFinalizar=0;
+let seconds = 0;
+
 
 while (nCartas < 4 || nCartas > 14 || (nCartas % 2 !== 0)) {
     nCartas = prompt(' REGRA DO JOGO\n- Número máximo de cartas, 14\n- Número minimo de cartas, 4 \n-Escolha o numero de cartas');
 
 }
 
+startTimer();
 
 let nPares = nCartas / 2;
 
@@ -48,7 +51,6 @@ listaDisplay.sort(function() { return 0.5 - Math.random() });
 // distribuir as cartas na tela
 for(let m = 0 ; m < nCartas; m++) {
     caixaDeCartas.innerHTML += listaDisplay[m];
-   
 }
 function virarCarta (ver){
 console.log(ver);
@@ -89,7 +91,17 @@ function compararCarta (um, dois){
 
    }
    if(contarFinalizar === nPares){
-    alert(`Você ganhou em ${contarJogadas} jogadas!`);
+    alert(`Você ganhou em ${contarJogadas} jogadas! A duração do jogo foi de ${seconds} segundos!`);
    }
 }
+
+const timerElement = document.getElementById('timer');
+function startTimer() {
+    setInterval(() => {
+      seconds++;
+
+      timerElement.textContent = seconds;
+    }, 1000);
+  }
+
 
