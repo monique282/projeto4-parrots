@@ -1,9 +1,12 @@
 
 let nCartas = 0;
-
+let contarVerida =0;
+let contarJogadas =0;
+let carta1 , carta2;
+let contarFinalizar=0;
 
 while (nCartas < 4 || nCartas > 14 || (nCartas % 2 !== 0)) {
-    nCartas = prompt(' REGRA DO JOGO\n- Número máximo de cartas, 14\n - Número minimo de cartas ,4 \n-Escolha o numero de cartas');
+    nCartas = prompt(' REGRA DO JOGO\n- Número máximo de cartas, 14\n- Número minimo de cartas, 4 \n-Escolha o numero de cartas');
 
 }
 
@@ -15,13 +18,13 @@ const imagens = [
 
 let listaBase = [];
 
-for (let n = 0; n < nCartas; n++) {
-    listaBase[n] = ` <div class="carta" onclick ="virarCarta(this)">
-                            <div class="front-face face-1">
-                              <img src="./imagens/${imagens[n]}"/>
+for (let n = 0; n < nCartas/2; n++) {
+    listaBase[n] = ` <div class="carta" onclick ="virarCarta(this)"  data-test="card">
+                            <div class="front-face face">
+                            <img src="./imagens/front 1.png" alt="" data-test="face-down-image">
                             </div>
                             <div class="back-face face ">
-                            <img src="./imagens/front 1.png" alt="">
+                            <img src="./imagens/${imagens[n]}" data-test="face-up-image"/>
                             </div>
                         </div>
                         `;
@@ -36,7 +39,7 @@ for (let i = 0; i < nPares; i++) {
 
 let caixaDeCartas = document.querySelector('.caixa-de-cartas');
 const cartaInicial = document.querySelector('.carta');
-caixaDeCartas.innerHTML = '&nbsp;';
+
 
 
 // embaralhar as cartas
@@ -47,6 +50,46 @@ for(let m = 0 ; m < nCartas; m++) {
     caixaDeCartas.innerHTML += listaDisplay[m];
    
 }
-function virarCarta (){
+function virarCarta (ver){
+console.log(ver);
+
+if(ver.classList.contains('selecionado') !== true && contarVerida === 0){
+ver.classList.add('selecionado');
+contarVerida++;
+contarJogadas++;
+carta1 = ver;
+
+} else if (ver.classList.contains('selecionado') !== true && contarVerida === 1){
+    ver.classList.add('selecionado');
+    contarVerida++;
+    contarJogadas++;
+    carta2 = ver;
+
+
+     setTimeout(compararCarta, 1000, carta1 , carta2)
+   
+    
+}
 
 }
+
+function compararCarta (um, dois){
+   if (um.querySelector('.back-face > img').src === dois.querySelector('.back-face > img').src){
+    contarVerida = 0;
+    um = '';
+    dois = '';
+    contarFinalizar++;
+
+   }else if(um.querySelector('.back-face > img').src !== dois.querySelector('.back-face > img').src){
+    um.classList.remove('selecionado');
+    dois.classList.remove('selecionado');
+    contarVerida = 0;
+    um = '';
+    dois = '';
+
+   }
+   if(contarFinalizar === nPares){
+    alert(`Você ganhou em ${contarJogadas} jogadas!`);
+   }
+}
+
