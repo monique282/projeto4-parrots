@@ -94,7 +94,7 @@ function compararCarta(um, dois) {
     if (contarFinalizar === nPares) {
         alert(`Você ganhou em ${contarJogadas} jogadas! A duração do jogo foi de ${seconds} segundos!`);
         while (começar !== true) {
-            reiniciar = prompt('Você gostaria de jogar novamente? (sim ou não)');
+            reiniciar = prompt('Você gostaria de reiniciar a partida? (sim ou não)');
             if (reiniciar === 'sim') {
                 location.reload();
                 começar = true;
